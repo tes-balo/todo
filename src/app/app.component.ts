@@ -28,4 +28,11 @@ export class AppComponent {
     });
   }
 
+  addItem(description: string) {
+    this.allItems.unshift({
+      description,
+      done: false
+    });
+  }
+
 }
