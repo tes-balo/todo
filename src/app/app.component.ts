@@ -28,9 +28,9 @@ export class AppComponent {
     });
   }
 
-  addItem(description: string) {
+  addItem(description: string): void {
     this.allItems.unshift({
-      description,
+      description: description,
       done: false
     });
   }
