@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo';
+  title: string = 'todo';
 
   filter: 'all' | 'active' | 'done' = 'all';
 
@@ -19,6 +19,9 @@ export class AppComponent {
 
   ];
 
+  /**
+   * 
+   */
   get items() {
     if (this.filter === 'all') {
       return this.allItems;
@@ -30,8 +33,9 @@ export class AppComponent {
 
   addItem(description: string): void {
     this.allItems.unshift({
-      description: description,
-      done: false
+      // The line below is confusing, why description instead of description: description
+      description,
+      done: false,
     });
   }
 
