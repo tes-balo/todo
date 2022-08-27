@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        ".angular/": true,
+        ".vscode/": true,
+        "**/*.js": true,
+        "**/*.json": true,
+        "node_modules/": true
+    }
+}
