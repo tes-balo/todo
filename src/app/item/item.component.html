@@ -1,4 +1,5 @@
 <div class="item">
 
     <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
+    <label [for]="item.description"> {{ item.description }} </label>
 </div>
