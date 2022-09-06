@@ -1,10 +1,11 @@
 import { PropertyRead } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { ItemComponent } from './item/item.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title: string = 'todo';
@@ -16,11 +17,10 @@ export class AppComponent {
     { description: 'sleep', done: false },
     { description: 'laugh', done: false },
     { description: 'play', done: false },
-
   ];
 
   /**
-   * 
+   *
    */
   get items() {
     if (this.filter === 'all') {
@@ -39,4 +39,7 @@ export class AppComponent {
     });
   }
 
+  remove(item) {
+    this.allItems.splice(this.allItems.indexOf(item), 1);
+  }
 }
