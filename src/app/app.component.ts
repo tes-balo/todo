@@ -1,5 +1,6 @@
 import { PropertyRead } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { Item } from './item';
 import { ItemComponent } from './item/item.component';
 
 @Component({
@@ -39,7 +40,7 @@ export class AppComponent {
     });
   }
 
-  remove(item) {
+  remove(item: Item) {
     this.allItems.splice(this.allItems.indexOf(item), 1);
   }
 }
