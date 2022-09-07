@@ -30,7 +30,7 @@
         "func-names":"warn",
         "curly":"warn",
         "complexity":"error",
-        "class-methods-use-this":"error",
+        "class-methods-use-this":"warn",
         "camelcase":"warn",
         "no-unsafe-optional-chaining": "error",
         "no-unreachable":"error",
