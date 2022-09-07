@@ -15,11 +15,31 @@
         "createDefaultProgram": true
       },
       "extends": [
+        "eslint:recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "prettier"
       ],
       "rules": {
+        "eqeqeq":"warn",
+        "no-unneeded-ternary": "warn",
+        "no-magic-numbers":"warn",
+        "semi-style":"warn",
+        "no-useless-return":"warn",
+        "no-invalid-this":"error",
+        "no-implicit-coercion":"warn",
+        "func-names":"warn",
+        "curly":"warn",
+        "complexity":"error",
+        "class-methods-use-this":"error",
+        "camelcase":"warn",
+        "no-unsafe-optional-chaining": "error",
+        "no-unreachable":"error",
+        "no-self-compare":"error",
+        "no-trailing-spaces":"warn",
+        "no-negated-condition":"warn",
+        "no-unexpected-multiline":"error",
+
 
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
@@ -41,6 +61,7 @@
       }
     },
     {
+      // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
       "files": [
         "*.html"
       ],
@@ -48,6 +69,16 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    // NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+        "prettier/prettier": ["error", { "parser": "angular" }]
+      }
     }
   ]
 }
