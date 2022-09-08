@@ -2,11 +2,12 @@
   <h1>My To Do List</h1>
 
   <h2>What would you like to do today?</h2>
-  <h2>{{ items.length }} <span *ngIf="items.length === 1"> item </span></h2>
+  <h2>{{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
+  <ng-template #elseBlock>items</ng-template>
+  </h2>
   <ul>
     <li *ngFor="let i of items">
-      <app-item> [item]="i"</app-item>
-      {{ i.description }}
+      <app-item> [item]="i" (remove)="remove(item)"</app-item>
     </li>
   </ul>
 
