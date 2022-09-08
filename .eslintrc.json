@@ -9,6 +9,7 @@
         "createDefaultProgram": true
       },
       "extends": [
+        "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "prettier"
@@ -32,6 +33,7 @@
         "no-trailing-spaces": "warn",
         "no-negated-condition": "warn",
         "no-unexpected-multiline": "error",
+        "@typescript-eslint/no-empty-function": "off",
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
           "error",
