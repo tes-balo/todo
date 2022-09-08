@@ -1,17 +1,11 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -20,26 +14,24 @@
         "prettier"
       ],
       "rules": {
-        "eqeqeq":"warn",
+        "eqeqeq": "warn",
         "no-unneeded-ternary": "warn",
-        "no-magic-numbers":"warn",
-        "semi-style":"warn",
-        "no-useless-return":"warn",
-        "no-invalid-this":"error",
-        "no-implicit-coercion":"warn",
-        "func-names":"warn",
-        "curly":"warn",
-        "complexity":"error",
-        "class-methods-use-this":"warn",
-        "camelcase":"warn",
+        "no-magic-numbers": "warn",
+        "semi-style": "warn",
+        "no-useless-return": "warn",
+        "no-invalid-this": "error",
+        "no-implicit-coercion": "warn",
+        "func-names": "warn",
+        "curly": "warn",
+        "complexity": "error",
+        "class-methods-use-this": "warn",
+        "camelcase": "warn",
         "no-unsafe-optional-chaining": "error",
-        "no-unreachable":"error",
-        "no-self-compare":"error",
-        "no-trailing-spaces":"warn",
-        "no-negated-condition":"warn",
-        "no-unexpected-multiline":"error",
-
-
+        "no-unreachable": "error",
+        "no-self-compare": "error",
+        "no-trailing-spaces": "warn",
+        "no-negated-condition": "warn",
+        "no-unexpected-multiline": "error",
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
           "error",
@@ -61,12 +53,8 @@
     },
     {
       // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     },
     // NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
@@ -76,7 +64,12 @@
       "extends": ["plugin:prettier/recommended"],
       "rules": {
         // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
-        "prettier/prettier": ["error", { "parser": "angular" }]
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
       }
     }
   ]
