@@ -15,10 +15,11 @@ export class AppComponent {
   filter: 'all' | 'active' | 'done' = 'all';
 
   allItems = [
-    { description: 'eat', done: true },
-    { description: 'sleep', done: false },
-    { description: 'laugh', done: false },
-    { description: 'play', done: false },
+    { description: 'Schedule social posts', done: true },
+    { description: 'Emails and organization', done: false },
+    { description: 'Slack Call', done: false },
+    { description: 'Lunch', done: false },
+    { description: 'Work out', done: false },
   ];
 
   get items() {
