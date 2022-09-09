@@ -1,5 +1,5 @@
 :root {
-    --radius-primary: 4px;
+  --radius-primary: 4px;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -16,7 +16,7 @@ body {
   color: #000;
   background-color: #fff;
   border: 2px solid #cecece;
-  padding: .35rem 1rem .25rem 1rem;
+  padding: 0.35rem 1rem 0.25rem 1rem;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -38,7 +38,7 @@ body {
   color: #fff;
   background-color: #000;
   width: 100%;
-  padding: .75rem;
+  padding: 0.75rem;
   font-size: 1.3rem;
   border: none;
   border-radius: var(--radius-primary);
