@@ -9,9 +9,11 @@ import { ItemComponent } from './item/item.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title: string = 'todo';
+  title = 'todo';
 
   filter: 'all' | 'active' | 'done' = 'all';
+
+  startingIndex = 1;
 
   allItems = [
     { description: 'eat', done: true },
@@ -38,6 +40,6 @@ export class AppComponent {
   }
 
   remove(item: Item) {
-    this.allItems.splice(this.allItems.indexOf(item), 1);
+    this.allItems.splice(this.allItems.indexOf(item), this.startingIndex);
   }
 }
