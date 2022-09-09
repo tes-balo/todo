@@ -1,6 +1,6 @@
 <div class="main">
   <h1>My To Do List</h1>
-  <label for="addItemInput">What would you like to do today?</label>
+  <label for="addItemInput" id="greet"></label>
 
   <h2>
     {{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
@@ -20,18 +20,15 @@
     class="lg-text-input" />
 
   <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
-  <h2>
-    <b>NOTE:</b><i>This page is still under construction, so you may encounter some bugs :)</i>
-  </h2>
-  <p>Contribute to project at <a href="https://github.com/slim-codes/todo">todo-app</a></p>
-  <span style="font-size: 100px">&#9829;</span>
-  <span style="font-size: 100px">&#8704;</span>
-  <span style="font-size: 100px">&#198;</span>
-  <span style="font-size: 100px">&#9775;</span>
-  <span style="font-size: 100px">&#9993;</span>
-  <span style="font-size: 100px">&#128170;</span>
-  <!--workout-->
-  <span style="font-size: 100px">💌</span>
-  <span style="font-size: 100px">&#127836;</span>
-  <!--food-->
+  <blockquote>
+    <strong>
+      NOTE: This project is still under construction, so you may encounter some bugs while using it
+      <span class="emoji">🙃</span></strong
+    >
+  </blockquote>
+  <p>
+    Contribute to this project on
+    <a href="https://github.com/slim-codes/todo" target="_blank"> github </a
+    ><span class="emoji">🤝</span>
+  </p>
 </div>
