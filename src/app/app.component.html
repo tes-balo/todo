@@ -9,7 +9,6 @@
   <ul>
     <li *ngFor="let i of items">
       <app-item [item]="i" (remove)="remove(i)"></app-item>
-      {{ i.description }}
     </li>
   </ul>
 
@@ -21,4 +20,18 @@
     class="lg-text-input" />
 
   <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  <h2>
+    <b>NOTE:</b><i>This page is still under construction, so you may encounter some bugs :)</i>
+  </h2>
+  <p>Contribute to project at <a href="https://github.com/slim-codes/todo">todo-app</a></p>
+  <span style="font-size: 100px">&#9829;</span>
+  <span style="font-size: 100px">&#8704;</span>
+  <span style="font-size: 100px">&#198;</span>
+  <span style="font-size: 100px">&#9775;</span>
+  <span style="font-size: 100px">&#9993;</span>
+  <span style="font-size: 100px">&#128170;</span>
+  <!--workout-->
+  <span style="font-size: 100px">💌</span>
+  <span style="font-size: 100px">&#127836;</span>
+  <!--food-->
 </div>
