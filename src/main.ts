@@ -13,21 +13,3 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 /*exported STARTING_INDEX*/
 export const STARTING_INDEX = 1;
-
-/**
- *
- */
-// VARIABLES
-    const subHeadingText = 'What would you like to do today?';
-    const writingSpeed = 50;
-    let charPosition = 0;
-  export function greetUser(): void{
-
-    const greet = <HTMLElement>document.getElementById('greet');
-    if (charPosition < subHeadingText.length) {
-      greet.innerHTML += subHeadingText[charPosition];
-      charPosition++;
-      setTimeout(greetUser, writingSpeed);
-
-    }
-  }

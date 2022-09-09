@@ -1,6 +1,6 @@
 <div class="main">
   <h1>My To Do List</h1>
-  <label for="addItemInput" id="greet"></label>
+  <label for="addItemInput">What would you like to do today?</label>
 
   <h2>
     {{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
@@ -9,6 +9,7 @@
   <ul>
     <li *ngFor="let i of items">
       <app-item [item]="i" (remove)="remove(i)"></app-item>
+      {{ i.description }}
     </li>
   </ul>
 
@@ -20,15 +21,4 @@
     class="lg-text-input" />
 
   <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
-  <blockquote>
-    <strong>
-      NOTE: This project is still under construction, so you may encounter some bugs while using it
-      <span class="emoji">🙃</span></strong
-    >
-  </blockquote>
-  <p>
-    Contribute to this project on
-    <a href="https://github.com/slim-codes/todo" target="_blank"> github </a
-    ><span class="emoji">🤝</span>
-  </p>
 </div>

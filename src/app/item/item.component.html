@@ -4,14 +4,7 @@
     type="checkbox"
     (change)="item.done = !item.done"
     [checked]="item.done" />
-  <label [for]="item.description">
-    {{ item.description }}
-    <span class="emoji" *ngIf="item.description === 'Schedule social posts'">💬</span>
-    <span class="emoji" *ngIf="item.description === 'Emails and organization'">✉</span>
-    <span class="emoji" *ngIf="item.description === 'Slack Call'">📞</span>
-    <span class="emoji" *ngIf="item.description === 'Lunch'">🥘</span>
-    <span class="emoji" *ngIf="item.description === 'Work out'"> 🏋🏼</span>
-  </label>
+  <label [for]="item.description"> {{ item.description }} </label>
 
   <div class="btn-wrapper" *ngIf="editable">
     <button class="btn" (click)="editable = !editable">Edit</button>

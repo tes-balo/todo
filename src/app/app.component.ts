@@ -2,7 +2,7 @@ import { PropertyRead } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Item } from './item';
 import { ItemComponent } from './item/item.component';
-import { greetUser, STARTING_INDEX } from 'src/main';
+import { STARTING_INDEX } from 'src/main';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,6 @@ import { greetUser, STARTING_INDEX } from 'src/main';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor () {
-    window.addEventListener('load', greetUser);
-    console.log('page is fully loaded');
-  }
   title = 'todo';
 
   filter: 'all' | 'active' | 'done' = 'all';
