@@ -20,9 +20,6 @@ export class AppComponent {
     { description: 'play', done: false },
   ];
 
-  /**
-   *
-   */
   get items() {
     if (this.filter === 'all') {
       return this.allItems;
