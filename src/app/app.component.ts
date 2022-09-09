@@ -2,6 +2,7 @@ import { PropertyRead } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Item } from './item';
 import { ItemComponent } from './item/item.component';
+import { STARTING_INDEX } from 'src/main';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,6 @@ export class AppComponent {
   title = 'todo';
 
   filter: 'all' | 'active' | 'done' = 'all';
-
-  startingIndex = 1;
 
   allItems = [
     { description: 'eat', done: true },
@@ -40,6 +39,6 @@ export class AppComponent {
   }
 
   remove(item: Item) {
-    this.allItems.splice(this.allItems.indexOf(item), this.startingIndex);
+    this.allItems.splice(this.allItems.indexOf(item), STARTING_INDEX);
   }
 }
