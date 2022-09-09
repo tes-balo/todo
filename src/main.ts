@@ -10,3 +10,6 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+/*exported STARTING_INDEX*/
+export const STARTING_INDEX = 1;
