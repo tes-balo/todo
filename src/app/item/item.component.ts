@@ -18,7 +18,7 @@ export class ItemComponent implements OnInit {
   @Output() remove = new EventEmitter<Item>();
 
   saveItem(description: string) {
-    if (!description) {return;}
+    if (!description || description === ' ') {return}
     this.editable = true;
     this.item.description = description;
   }
