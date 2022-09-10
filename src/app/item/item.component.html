@@ -28,7 +28,7 @@
       [value]="item.description"
       (keyup.enter)="saveItem(editedItem.value)" />
     <div class="btn-wrapper">
-      <button class="btn" onclick="editable = !editable">Cancel</button>
+      <button class="btn" (click)="editable = !editable">Cancel</button>
       <button class="=btn btn-save" (click)="saveItem(editedItem.value)">Save</button>
     </div>
   </div>
