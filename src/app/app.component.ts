@@ -36,6 +36,7 @@ export class AppComponent {
   }
 
   addItem(description: string): void {
+    if (!description || description === ' ') {return}
     this.allItems.unshift({
       // The line below is confusing, why description instead of description: description
       description,
