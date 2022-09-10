@@ -6,13 +6,13 @@ import {Item} from '../item';
   styleUrls: ['./item.component.css'],
 })
 
-/* SECTION
+/* NOTE
 * should implements OnInIt and constructor be removed?
   are they relevant for this project?
 */
 export class ItemComponent {
   editable = true;
-  /* REVIEW: why are both inputs returning error?? */
+  /* NOTE: why are both inputs returning error without the non-nullish operator?? */
   @Input() item!: Item;
   @Input() newItem!: string;
   @Output() remove = new EventEmitter<Item>();
