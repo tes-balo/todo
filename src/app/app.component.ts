@@ -1,7 +1,5 @@
-import { PropertyRead } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Item } from './item';
-import { ItemComponent } from './item/item.component';
 import { greetUser, STARTING_INDEX } from 'src/main';
 
 @Component({
