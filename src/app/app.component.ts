@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './item';
 import { greetUser, STARTING_INDEX } from 'src/main';
 
@@ -7,10 +7,13 @@ import { greetUser, STARTING_INDEX } from 'src/main';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  constructor () {
+export class AppComponent implements OnInit {
+  constructor() {
     window.addEventListener('load', greetUser);
     console.log('page is fully loaded');
+  }
+  ngOnInit(): void {
+    this.title = 'Angular CLI Rules';
   }
   title = 'todo';
 
@@ -34,7 +37,9 @@ export class AppComponent {
   }
 
   addItem(description: string): void {
-    if (!description || description === ' ') {return}
+    if (!description || description === ' ') {
+      return;
+    }
     this.allItems.unshift({
       // NOTE: The line below is confusing, why description instead of description: description
       description,
@@ -45,4 +50,12 @@ export class AppComponent {
   remove(item: Item) {
     this.allItems.splice(this.allItems.indexOf(item), STARTING_INDEX);
   }
+
+  changeTitle(event: Event, newItem: HTMLInputElement): void {
+    console.log(event)
+    this.title = (<HTMLInputElement>event.target).value;
+    console.log(this.title)
+    console.log(newItem);
+  }
+
 }
