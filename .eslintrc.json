@@ -16,19 +16,24 @@
       ],
       "rules": {
         "eqeqeq": "warn",
-        "no-unneeded-ternary": "warn",
-        "no-magic-numbers": "warn",
-        "semi-style": "warn",
-        "no-useless-return": "warn",
-        "no-invalid-this": "error",
-        "no-implicit-coercion": "warn",
+        "arrow-parens": "warn",
+        "arrow-spacing": "error",
+        "implicit-arrow-linebreak": "warn",
+        "no-confusing-arrow": "warn",
         "func-names": "warn",
+        "no-useless-return": "warn",
+        "prefer-rest-params": "warn",
+        "semi-style": "warn",
         "curly": "warn",
         "complexity": "error",
         "class-methods-use-this": "warn",
         "camelcase": "warn",
+        "no-unneeded-ternary": "warn",
+        "no-magic-numbers": "warn",
         "no-unsafe-optional-chaining": "error",
         "no-unreachable": "error",
+        "no-invalid-this": "error",
+        "no-implicit-coercion": "warn",
         "no-self-compare": "error",
         "no-trailing-spaces": "warn",
         "no-negated-condition": "warn",
@@ -49,6 +54,14 @@
             "type": "element",
             "prefix": "app",
             "style": "kebab-case"
+          }
+        ],
+        "space-before-function-paren": [
+          "error",
+          {
+            "named": "never",
+            "anonymous": "always",
+            "asyncArrow": "always"
           }
         ]
       }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Item } from './item';
-import { greetUser, STARTING_INDEX } from 'src/main';
+import {Component, OnInit} from '@angular/core';
+import {Item} from './item';
+import {greetUser, STARTING_INDEX} from 'src/main';
 
 @Component({
   selector: 'app-root',
@@ -14,17 +14,19 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.title = 'Angular CLI Rules';
+    const TIME = 3000;
+    setTimeout(() => (this.title = 'testing'), TIME);
   }
   title = 'todo';
 
   filter: 'all' | 'active' | 'done' = 'all';
 
   allItems = [
-    { description: 'Schedule social posts', done: true },
-    { description: 'Emails and organization', done: false },
-    { description: 'Slack Call', done: false },
-    { description: 'Lunch', done: false },
-    { description: 'Work out', done: false },
+    {description: 'Schedule social posts', done: true},
+    {description: 'Emails and organization', done: false},
+    {description: 'Slack Call', done: false},
+    {description: 'Lunch', done: false},
+    {description: 'Work out', done: false},
   ];
 
   get items() {
@@ -52,10 +54,9 @@ export class AppComponent implements OnInit {
   }
 
   changeTitle(event: Event, newItem: HTMLInputElement): void {
-    console.log(event)
+    console.log(event);
     this.title = (<HTMLInputElement>event.target).value;
-    console.log(this.title)
+    console.log(this.title);
     console.log(newItem);
   }
-
 }
