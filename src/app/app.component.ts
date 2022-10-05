@@ -13,11 +13,9 @@ export class AppComponent implements OnInit {
     console.log('page is fully loaded');
   }
   ngOnInit(): void {
-    this.title = 'Angular CLI Rules';
-    const TIME = 3000;
-    setTimeout(() => (this.title = 'testing'), TIME);
+    //empty
   }
-  title = 'todo';
+  title = '';
 
   filter: 'all' | 'active' | 'done' = 'all';
 
@@ -28,6 +26,8 @@ export class AppComponent implements OnInit {
     {description: 'Lunch', done: false},
     {description: 'Work out', done: false},
   ];
+
+  darkMode = false;
 
   get items() {
     if (this.filter === 'all') {
@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
     }
     this.allItems.unshift({
       // NOTE: The line below is confusing, why description instead of description: description
+      // Its the shorthand syntax introduced in es6
       description,
       done: false,
     });
@@ -58,5 +59,9 @@ export class AppComponent implements OnInit {
     this.title = (<HTMLInputElement>event.target).value;
     console.log(this.title);
     console.log(newItem);
+  }
+
+  toggleDarkMode(): void {
+    this.darkMode = !this.darkMode;
   }
 }
