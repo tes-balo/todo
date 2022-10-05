@@ -43,8 +43,8 @@ export class AppComponent implements OnInit {
       return;
     }
     this.allItems.unshift({
-      // NOTE: The line below is confusing, why description instead of description: description
-      // Its the shorthand syntax introduced in es6
+      // NOTE: description below is shorthand for description: description
+      // It's the shorthand syntax introduced in es6
       description,
       done: false,
     });
