@@ -118,3 +118,7 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
 [type="checkbox"]:not(:checked):focus + label:before {
   border: 2px dotted blue;
 }
+
+.strike-through {
+  text-decoration: line-through 0.15rem;
+}

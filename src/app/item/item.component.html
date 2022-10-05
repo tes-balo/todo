@@ -5,7 +5,7 @@
     (change)="item.done = !item.done"
     [checked]="item.done" />
   <label [for]="item.description">
-    {{ item.description }}
+    <span [ngClass]="{ 'strike-through': item.done }">{{ item.description }}</span>
     <span class="emoji" *ngIf="item.description === 'Schedule social posts'">💬</span>
     <span class="emoji" *ngIf="item.description === 'Emails and organization'">✉</span>
     <span class="emoji" *ngIf="item.description === 'Slack Call'">📞</span>
