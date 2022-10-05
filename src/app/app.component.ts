@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     console.log('page is fully loaded');
   }
   ngOnInit(): void {
-    //empty
+   
   }
   title = '';
 
