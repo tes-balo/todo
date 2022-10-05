@@ -72,3 +72,20 @@ ul {
 ul li {
   list-style: none;
 }
+
+.main-dark {
+  background-color: #15202B;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 hsla(0, 6%, 97%, 0.2);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.btn-ghost {
+  margin-left: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+}
