@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     console.log('page is fully loaded');
   }
   ngOnInit(): void {
-   
+
   }
   title = '';
 
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
       description,
       done: false,
     });
+    this.title = '';
   }
 
   remove(item: Item) {
