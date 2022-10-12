@@ -32,7 +32,7 @@
     {{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
     <ng-template #elseBlock>Items</ng-template>
   </h2>
-  <div class="card" *ngIf="items.length > 0">
+  <div class="card" *ngIf="items.length">
     <ul class="itemsList">
     <li *ngFor="let i of items">
       <app-item [item]="i" (remove)="remove(i)"></app-item>
