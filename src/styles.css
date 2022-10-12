@@ -1,6 +1,9 @@
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
 :root {
   --radius-primary: 4px;
 }
+
 body {
   font-family: Helvetica, Arial, sans-serif;
 }

@@ -9,6 +9,7 @@
   vertical-align: middle;
   line-height: 1.5;
 }
+
 .btn-wrapper {
   margin-top: 1rem;
   margin-bottom: .5rem;
@@ -73,52 +74,77 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
   position: absolute;
   left: -9999px;
 }
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
+
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label {
   position: relative;
   padding-left: 1.95em;
   cursor: pointer;
 }
 
 /* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+[type="checkbox"]:not(:checked)+label:before,
+[type="checkbox"]:checked+label:before {
   content: '';
   position: absolute;
-  left: 0; top: 0;
-  width: 1.25em; height: 1.25em;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
   border: 2px solid #ccc;
   background: #fff;
 }
 
 /* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
+[type="checkbox"]:not(:checked)+label:after,
+[type="checkbox"]:checked+label:after {
   content: '\2713\0020';
   position: absolute;
-  top: .15em; left: .22em;
+  top: .15em;
+  left: .22em;
   font-size: 1.3em;
   line-height: 0.8;
   color: #0d8dee;
   transition: all .2s;
   font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
 }
+
 /* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
+[type="checkbox"]:not(:checked)+label:after {
   opacity: 0;
   transform: scale(0);
 }
-[type="checkbox"]:checked + label:after {
+
+[type="checkbox"]:checked+label:after {
   opacity: 1;
   transform: scale(1);
 }
 
 /* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
+[type="checkbox"]:checked:focus+label:before,
+[type="checkbox"]:not(:checked):focus+label:before {
   border: 2px dotted blue;
 }
 
 .strike-through {
   text-decoration: line-through 0.15rem;
+}
+
+.editButton {
+  margin: 0 10px;
+}
+
+.deleteButton {
+  background-color: #9a0000;
+  color: #FFF;
+}
+
+span.description {
+  display: inline-block;
+  width: 47%;
+}
+
+span.emoji {
+  display: inline-block;
+  width: 10%;
 }

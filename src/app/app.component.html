@@ -1,9 +1,20 @@
+<!-- eslint-disable prettier/prettier -->
 <div class="main" [ngClass]="{ 'main-dark': darkMode }">
   <div class="header">
     <h1>My To Do List</h1>
     <button class="btn-ghost" (click)="toggleDarkMode()">Dark Mode</button>
   </div>
   <label for="addItemInput" id="greet"></label>
+  <input
+    #newItem
+    placeholder="add an item"
+    (keyup.enter)="addItem(newItem.value)"
+    (keyup)="changeTitle($event, newItem)"
+    id="addItemInput"
+    class="lg-text-input"
+    [value]="title" />
+
+  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
   <div class="btn-wrapper">
     <button class="btn btn-menu" [class.active]="filter === 'all'" (click)="filter = 'all'">
       All
@@ -21,22 +32,14 @@
     {{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
     <ng-template #elseBlock>Items</ng-template>
   </h2>
-  <ul>
+  <div class="card" *ngIf="items.length > 0">
+    <ul class="itemsList">
     <li *ngFor="let i of items">
       <app-item [item]="i" (remove)="remove(i)"></app-item>
     </li>
   </ul>
+  </div>
 
-  <input
-    #newItem
-    placeholder="add an item"
-    (keyup.enter)="addItem(newItem.value)"
-    (keyup)="changeTitle($event, newItem)"
-    id="addItemInput"
-    class="lg-text-input"
-    [value]="title" />
-
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
   <blockquote>
     <strong>
       NOTE: This project is still under construction, so you may encounter some bugs while using it

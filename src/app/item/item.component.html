@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <div class="item">
   <input
     [id]="item.description"
@@ -5,18 +6,20 @@
     (change)="item.done = !item.done"
     [checked]="item.done" />
   <label [for]="item.description">
-    <span [ngClass]="{ 'strike-through': item.done }">{{ item.description }}</span>
     <span class="emoji" *ngIf="item.description === 'Schedule social posts'">💬</span>
     <span class="emoji" *ngIf="item.description === 'Emails and organization'">✉</span>
     <span class="emoji" *ngIf="item.description === 'Slack Call'">📞</span>
     <span class="emoji" *ngIf="item.description === 'Lunch'">🥘</span>
     <span class="emoji" *ngIf="item.description === 'Work out'"> 🏋🏼</span>
+    <span class="description" [ngClass]="{ 'strike-through': item.done }">{{ item.description }}</span>
+    <button class="btn editButton" (click)="editable = !editable"><i class="bi bi-pencil-fill"></i></button>
+    <button class="btn deleteButton" (click)="remove.emit()"><i class="bi bi-trash3-fill"></i></button>
   </label>
 
-  <div class="btn-wrapper" *ngIf="editable">
+  <!-- <div class="btn-wrapper" *ngIf="editable">
     <button class="btn" (click)="editable = !editable">Edit</button>
     <button class="btn btn-warn" (click)="remove.emit()">Delete</button>
-  </div>
+  </div> -->
 
   <!-- This section shows only if user clicks Edit button -->
   <div *ngIf="!editable">
