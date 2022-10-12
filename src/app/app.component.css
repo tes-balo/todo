@@ -89,3 +89,48 @@ ul li {
   margin-bottom: auto;
   cursor: pointer;
 }
+
+ul.itemsList {
+  padding-left: 15px;
+}
+
+.card {
+  display: inline-block;
+  padding: 2rem 1rem 5rem 1rem;
+  background-color: lemonchiffon;
+  position: relative;
+  border: none;
+  color: #000;
+}
+
+.card:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-top: 30px solid lemonchiffon;
+  border-right: 30px solid lemonchiffon;
+  border-left: 30px solid lightblue;
+  border-bottom: 30px solid lightblue;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  filter: drop-shadow(7px -7px 5px #706e6e);
+  margin-right: 10%;
+}
+
+.card:after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-color: skyblue;
+  top: 0px;
+  right: 0px;
+  border-bottom: 20px solid lemonchiffon;
+  border-left: 20px solid lemonchiffon;
+  border-right: 20px solid lightblue;
+  border-top: 20px solid lightblue;
+  position: absolute;
+  filter: drop-shadow(-5px 5px 3px #706e6e);
+}
