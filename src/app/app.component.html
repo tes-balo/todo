@@ -1,4 +1,3 @@
-<!-- eslint-disable prettier/prettier -->
 <div class="main" [ngClass]="{ 'main-dark': darkMode }">
   <div class="header">
     <h1>My To Do List</h1>
@@ -9,10 +8,10 @@
     #newItem
     placeholder="add an item"
     (keyup.enter)="addItem(newItem.value)"
-    (keyup)="changeTitle($event, newItem)"
+    (keyup)="changeTitle($event)"
     id="addItemInput"
     class="lg-text-input"
-    [value]="title" />
+    [value]="inputTitle" />
 
   <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
   <div class="btn-wrapper">
@@ -34,10 +33,11 @@
   </h2>
   <div class="card" *ngIf="items.length">
     <ul class="itemsList">
-    <li *ngFor="let i of items">
-      <app-item [item]="i" (remove)="remove(i)"></app-item>
-    </li>
-  </ul>
+      <li *ngFor="let todoItem of items">
+        <!-- Assign each todoItem to the item input in ItemComponent.ts -->
+        <app-item [item]="todoItem" (remove)="removeItem(todoItem)"></app-item>
+      </li>
+    </ul>
   </div>
 
   <blockquote>

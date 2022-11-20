@@ -9,17 +9,16 @@ import {greetUser, STARTING_INDEX} from 'src/main';
 })
 export class AppComponent implements OnInit {
   constructor() {
+  }
+  ngOnInit(): void {
     window.addEventListener('load', greetUser);
     console.log('page is fully loaded');
   }
-  ngOnInit(): void {
-
-  }
-  title = '';
+  inputTitle = '';
 
   filter: 'all' | 'active' | 'done' = 'all';
 
-  allItems = [
+  allItems: Item[] = [
     {description: 'Schedule social posts', done: true},
     {description: 'Emails and organization', done: false},
     {description: 'Slack Call', done: false},
@@ -48,18 +47,16 @@ export class AppComponent implements OnInit {
       description,
       done: false,
     });
-    this.title = '';
+    this.inputTitle = '';
   }
 
-  remove(item: Item) {
+  removeItem(item: Item) {
     this.allItems.splice(this.allItems.indexOf(item), STARTING_INDEX);
   }
 
-  changeTitle(event: Event, newItem: HTMLInputElement): void {
+  changeTitle(event: Event): void {
     console.log(event);
-    this.title = (<HTMLInputElement>event.target).value;
-    console.log(this.title);
-    console.log(newItem);
+    this.inputTitle = (<HTMLInputElement>event.target).value;
   }
 
   toggleDarkMode(): void {

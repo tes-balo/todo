@@ -1,4 +1,7 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+/* This component is strictly for editing and deleting items only.
+Hence, it's a reusable component and it delegates the adding of items to any component which requires it (e.g AppComponent). This delegation is done through the @Input decorator
+*/
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {Item} from '../item';
 @Component({
   selector: 'app-item',
@@ -14,8 +17,8 @@ export class ItemComponent {
   editable = true;
   /* NOTE: why are both inputs returning error without the non-nullish operator?? */
   @Input() item!: Item;
-  @Input() newItem!: string;
-  @Output() remove = new EventEmitter<Item>();
+  // @Input() newItem!: string;
+  @Output() remove: EventEmitter<Item> = new EventEmitter();
 
   saveItem(description: string) {
     if (!description || description === ' ') {return}
