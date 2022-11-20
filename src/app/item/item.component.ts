@@ -16,6 +16,7 @@ import {Item} from '../item';
 export class ItemComponent {
   editable = true;
   /* NOTE: why are both inputs returning error without the non-nullish operator?? */
+  // Expect inputs (i.e items to display) from AppComponent
   @Input() item!: Item;
   // @Input() newItem!: string;
   @Output() remove: EventEmitter<Item> = new EventEmitter();
