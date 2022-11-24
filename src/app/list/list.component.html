@@ -1,0 +1,54 @@
+<div class="main" [ngClass]="{ 'main-dark': darkMode }">
+  <div class="header">
+    <h1>My To Do List</h1>
+    <button class="btn-ghost" (click)="toggleDarkMode()">Dark Mode</button>
+  </div>
+  <label for="addItemInput" id="greet"></label>
+  <input
+    #newItem
+    placeholder="add an item"
+    (keyup.enter)="addItem(newItem.value)"
+    (keyup)="changeTitle($event)"
+    id="addItemInput"
+    class="lg-text-input"
+    [value]="inputTitle" />
+
+  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  <div class="btn-wrapper">
+    <button class="btn btn-menu" [class.active]="filter === 'all'" (click)="filter = 'all'">
+      All
+    </button>
+
+    <button class="btn btn-menu" [class.active]="filter === 'active'" (click)="filter = 'active'">
+      To Do
+    </button>
+
+    <button class="btn btn-menu" [class.active]="filter === 'done'" (click)="filter = 'done'">
+      Done
+    </button>
+  </div>
+  <h2>
+    {{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
+    <ng-template #elseBlock>Items</ng-template>
+  </h2>
+  <div class="card" *ngIf="items.length">
+    <ul class="itemsList">
+      <li *ngFor="let todoItem of items">
+        <!-- Assign each todoItem to the item input in ItemComponent.ts -->
+        <app-item [item]="todoItem" (remove)="removeItem(todoItem)"></app-item>
+      </li>
+    </ul>
+  </div>
+
+  <blockquote>
+    <strong>
+      NOTE: This project is still under construction, so you may encounter some bugs while using it
+      <span class="emoji">🙃</span></strong
+    >
+  </blockquote>
+  <p>
+    Contribute to this project on
+    <a href="https://github.com/slim-codes/todo" target="_blank"> github </a
+    ><span class="emoji">🤝</span>
+  </p>
+</div>
