@@ -35,6 +35,7 @@
     <ul class="itemsList">
       <li *ngFor="let todoItem of items">
         <!-- Assign each todoItem to the item input in ItemComponent.ts -->
+        <!-- TODO: Use event delegation (bubbling) to minimize number of event listeners for each todo item -->
         <app-item [item]="todoItem" (remove)="removeItem(todoItem)"></app-item>
       </li>
     </ul>
