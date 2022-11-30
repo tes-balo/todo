@@ -1,28 +1,28 @@
 {
-    "files.exclude": {
-        ".angular/": true,
-        ".vscode/": true,
-        "**/*.js": true,
-        "node_modules/": true
-    },
-    "typescript.format.insertSpaceAfterTypeAssertion": true,
-    "editor.formatOnPaste": true,
-    "prettier.requireConfig": true,
-    "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": false,
+  "files.exclude": {
+    ".angular/": true,
+    ".vscode/": true,
+    "**/*.js": true,
+    "node_modules/": true
+  },
+  "typescript.format.insertSpaceAfterTypeAssertion": true,
+  "editor.formatOnPaste": true,
+  "prettier.requireConfig": true,
+  "editor.formatOnSave": true,
+  "diffEditor.ignoreTrimWhitespace": false,
 
-    "[html]": {
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "editor.formatOnSave": false
-  },
+    "editor.formatOnSave": true
+  }
 }
