@@ -1,59 +1,57 @@
+import { TodoListService } from '../services/todo-list.service';
+import { greet } from 'src/main';
 import { Component, OnInit } from '@angular/core';
-import { greetUser, STARTING_INDEX } from 'src/main';
 import { Item } from '../item';
+// import { GreetUserService } from '../services/greet-user.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  // GreetUserService: GreetUserService;
+  TodoListService: TodoListService; //initialized in constructor
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-    window.addEventListener('load', greetUser);
-    console.log('page is fully loaded');
-  }
+  todoList!: Item[];
 
   inputTitle = '';
 
   filter: 'all' | 'active' | 'done' = 'all';
 
-  allItems: Item[] = [
-    {description: 'Schedule social posts', done: true},
-    {description: 'Emails and organization', done: false},
-    {description: 'Slack Call', done: false},
-    {description: 'Lunch', done: false},
-    {description: 'Work out', done: false},
-  ];
-
   darkMode = false;
 
-  get items() {
+  constructor(TodoListService: TodoListService) {
+    this.TodoListService = TodoListService;
+    // this.GreetUserService = GreetUserService;
+  }
+  ngOnInit(): void {
+    window.addEventListener('load', greet);
+    console.log('page is fully loaded');
+    this.todoList = this.TodoListService.TodoList;
+  }
+
+  get TodoList(): Item[] {
     if (this.filter === 'all') {
-      return this.allItems;
+      return this.todoList;
     }
-    return this.allItems.filter((item): boolean => {
+    return this.todoList.filter((item): boolean => {
       return this.filter === 'done' ? item.done : !item.done;
     });
   }
-
   addItem(description: string): void {
     if (!description || description === ' ') {
-      return;
+      return; //prevent user from submitting non-string values
     }
-    this.allItems.unshift({
+    this.TodoListService.addItem({
       // NOTE: description below is shorthand for description: description
       // It's the shorthand syntax introduced in es6
       description,
       done: false,
     });
-    this.inputTitle = '';
   }
 
-  removeItem(item: Item) {
-    this.allItems.splice(this.allItems.indexOf(item), STARTING_INDEX);
+  removeItem(item: Item): void {
+    this.TodoListService.removeItem(item); // item here refers to the actual item gotten from the item-component HTML
   }
 
   changeTitle(event: Event): void {
@@ -64,5 +62,4 @@ export class ListComponent implements OnInit {
   toggleDarkMode(): void {
     this.darkMode = !this.darkMode;
   }
-
 }

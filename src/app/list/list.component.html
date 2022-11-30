@@ -28,12 +28,12 @@
     </button>
   </div>
   <h2>
-    {{ items.length }} <span *ngIf="items.length === 1; else elseBlock"> item </span>
+    {{ TodoList.length }} <span *ngIf="TodoList.length === 1; else elseBlock"> item </span>
     <ng-template #elseBlock>Items</ng-template>
   </h2>
-  <div class="card" *ngIf="items.length">
+  <div class="card" *ngIf="TodoList.length">
     <ul class="itemsList">
-      <li *ngFor="let todoItem of items">
+      <li *ngFor="let todoItem of TodoList">
         <!-- Assign each todoItem to the item input in ItemComponent.ts -->
         <!-- TODO: Use event delegation (bubbling) to minimize number of event listeners for each todo item -->
         <app-item [item]="todoItem" (remove)="removeItem(todoItem)"></app-item>

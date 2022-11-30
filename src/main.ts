@@ -12,21 +12,21 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch((err) => console.error(err));
 
-/*exported STARTING_INDEX*/
-export const STARTING_INDEX = 1;
-
 /**
  *
  */
 // VARIABLES
-const subHeadingText = 'What would you like to do today?';
-const writingSpeed = 50;
-let charPosition = 0;
-export function greetUser(): void {
-  const greet = <HTMLElement>document.getElementById('greet');
-  if (charPosition < subHeadingText.length) {
-    greet.innerHTML += subHeadingText[charPosition];
-    charPosition++;
-    setTimeout(greetUser, writingSpeed);
-  }
+export function greet():void {
+	let charPosition = 0;
+	function greetUser(): void {
+	  const subHeadingText = 'What would you like to do today?';
+	  const writingSpeed = 50;
+	  const greet = <HTMLElement>document.getElementById('greet');
+	  if (charPosition < subHeadingText.length) {
+	    greet.innerHTML += subHeadingText[charPosition]; // append next letter
+	    charPosition++; // go to next letter of subHeadingText
+	    setTimeout(greetUser, writingSpeed); // append next letter every 50ms
+	  }
+	}
+  greetUser();
 }
