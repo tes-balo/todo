@@ -1,3 +1,4 @@
+
 .item {
   padding: .5rem 0 .75rem 0;
   text-align: left;
@@ -126,7 +127,7 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
   border: 2px dotted blue;
 }
 
-.strike-through {
+.todo-complete {
   text-decoration: line-through 0.15rem;
 }
 
@@ -135,8 +136,8 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
 }
 
 .deleteButton {
-  background-color: #9a0000;
-  color: #FFF;
+  background-color: hsl(0, 100%, 30%);
+  color: hsl(0, 0%, 100%);
 }
 
 span.description {

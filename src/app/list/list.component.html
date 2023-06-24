@@ -1,19 +1,23 @@
-<div class="main" [ngClass]="{ 'main-dark': darkMode }">
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<div *ngIf="visible" class="main" [ngClass]="{ 'main-dark': darkMode }">
   <div class="header">
-    <h1>My To Do List</h1>
+    <h1>To Do List</h1>
     <button class="btn-ghost" (click)="toggleDarkMode()">Dark Mode</button>
   </div>
   <label for="addItemInput" id="greet"></label>
   <input
     #newItem
     placeholder="add an item"
-    (keyup.enter)="addItem(newItem.value)"
+    (keyup.enter)="addItem(newItem.value); newItem.value = ''"
     (keyup)="changeTitle($event)"
     id="addItemInput"
     class="lg-text-input"
     [value]="inputTitle" />
 
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  <button class="btn-primary" (click)="addItem(newItem.value); newItem.value = ''">Add</button>
   <div class="btn-wrapper">
     <button class="btn btn-menu" [class.active]="filter === 'all'" (click)="filter = 'all'">
       All
@@ -33,12 +37,23 @@
   </h2>
   <div class="card" *ngIf="TodoList.length">
     <ul class="itemsList">
+      <!-- Assign each todoItem to the item input in ItemComponent.ts -->
       <li *ngFor="let todoItem of TodoList">
-        <!-- Assign each todoItem to the item input in ItemComponent.ts -->
         <!-- TODO: Use event delegation (bubbling) to minimize number of event listeners for each todo item -->
-        <app-item [item]="todoItem" (remove)="removeItem(todoItem)"></app-item>
+        <!-- NOTE: Why is removeItem(todoItem) equivalent to removeItem($event) -->
+        <!-- On receiving item(through remove.emit) event, delete todoItem from list -->
+        <!-- $event holds what was passed to the remove event (item) -->
+
+        <!-- <a [routerLink]="['/editor', todoItem.id]"> hh</a> -->
+        <div class="todo-item">
+          <app-item [item]="todoItem" (remove)="removeItem($event)"></app-item>
+        </div>
       </li>
     </ul>
+    <!-- <button title="add" class="add-btn">
+      <a [routerLink]="['editor']" (click)="(!visible)">hhh</a>
+      <span class="material-symbols-outlined"> add </span>
+    </button> -->
   </div>
 
   <blockquote>
@@ -52,4 +67,6 @@
     <a href="https://github.com/slim-codes/todo" target="_blank"> github </a
     ><span class="emoji">🤝</span>
   </p>
+  <!-- <a href="test.html">tesla</a> -->
+  <app-edit></app-edit>
 </div>

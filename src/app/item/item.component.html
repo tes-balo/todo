@@ -1,22 +1,27 @@
-<div class="item">
+<div class="item" (click)="openEditor()">
   <input
     [id]="item.description"
     type="checkbox"
     (change)="item.done = !item.done"
     [checked]="item.done" />
   <label [for]="item.description">
+    <span class="description" [ngClass]="{ 'todo-complete': item.done }">
+      {{ item.description }}
+    </span>
+
     <span class="emoji" *ngIf="item.description === 'Schedule social posts'">💬</span>
     <span class="emoji" *ngIf="item.description === 'Emails and organization'">✉</span>
     <span class="emoji" *ngIf="item.description === 'Slack Call'">📞</span>
     <span class="emoji" *ngIf="item.description === 'Lunch'">🥘</span>
     <span class="emoji" *ngIf="item.description === 'Work out'"> 🏋🏼</span>
-    <span class="description" [ngClass]="{ 'strike-through': item.done }">{{
-      item.description
-    }}</span>
+
     <button class="btn editButton" (click)="editable = !editable">
       <i class="bi bi-pencil-fill"></i>
     </button>
-    <button class="btn deleteButton" (click)="remove.emit()">
+    <!-- emits the removed item to outer component -->
+    <!-- NOTE: Why remove.emit() equivalent to remove.emit($event) -->
+    <!-- remove.emit gives list the item you want to delete -->
+    <button class="btn deleteButton" (click)="remove.emit(item)">
       <i class="bi bi-trash3-fill"></i>
     </button>
   </label>
@@ -27,7 +32,7 @@
   </div> -->
 
   <!-- This section shows only if user clicks Edit button -->
-  <div *ngIf="!editable">
+  <ng-container *ngIf="editable">
     <input
       #editedItem
       class="sm-text-input"
@@ -39,5 +44,5 @@
       <button class="btn" (click)="editable = !editable">Cancel</button>
       <button class="btn btn-save" (click)="saveItem(editedItem.value)">Save</button>
     </div>
-  </div>
+  </ng-container>
 </div>

@@ -16,17 +16,19 @@ platformBrowserDynamic()
  *
  */
 // VARIABLES
-export function greet():void {
-	let charPosition = 0;
-	function greetUser(): void {
-	  const subHeadingText = 'What would you like to do today?';
-	  const writingSpeed = 50;
-	  const greet = <HTMLElement>document.getElementById('greet');
-	  if (charPosition < subHeadingText.length) {
-	    greet.innerHTML += subHeadingText[charPosition]; // append next letter
-	    charPosition++; // go to next letter of subHeadingText
-	    setTimeout(greetUser, writingSpeed); // append next letter every 50ms
-	  }
-	}
+export function greet(): void {
+  let charPosition = 0;
+
+  function greetUser(): void {
+    const subHeadingText = 'What would you like to do today?';
+    const writingSpeed = 50;
+    const greet = <HTMLElement>document.getElementById('greet');
+
+    if (charPosition < subHeadingText.length) {
+      greet.innerHTML += subHeadingText[charPosition]; // append next letter
+      charPosition++; // go to next letter of subHeadingText
+      setTimeout(greetUser, writingSpeed); // append next letter every 50ms
+    }
+  }
   greetUser();
 }
