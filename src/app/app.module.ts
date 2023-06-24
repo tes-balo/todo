@@ -8,9 +8,10 @@ import { TodoListService } from './services/todo-list.service';
 import { EditorComponent } from './components/editor/editor.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ShellComponent } from './shell/shell.component';
+import { ActiveEditorComponent } from './components/editor/active-editor/active-editor.component';
 
 @NgModule({
-  declarations: [AppComponent, ItemComponent, ListComponent, EditorComponent, ShellComponent],
+  declarations: [AppComponent, ItemComponent, ListComponent, EditorComponent, ShellComponent, ActiveEditorComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [TodoListService],
   bootstrap: [AppComponent],

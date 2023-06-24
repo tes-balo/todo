@@ -29,5 +29,8 @@ export class TodoListService {
     this.todoList.splice(this.todoList.indexOf(item), STARTING_INDEX);
   }
 
+  getTodoItem(val): string {
+    return this.TodoList.find( val => val.id == id);
+  }
   constructor() {}
 }

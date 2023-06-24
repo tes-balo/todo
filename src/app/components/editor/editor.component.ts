@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TodoListService } from 'src/app/services/todo-list.service';
+import { Item } from 'src/app/item';
 
 @Component({
   selector: 'app-edit',
@@ -10,7 +11,9 @@ import { TodoListService } from 'src/app/services/todo-list.service';
 export class EditorComponent implements OnInit {
   // router: Router;
   activatedRouteService: ActivatedRoute;
-  public TodoListService!: TodoListService;
+  id = '';
+  TodoListService!: TodoListService;
+  Item!: Item;
 
   constructor(activatedRoute: ActivatedRoute) {
     this.activatedRouteService = activatedRoute;
@@ -29,8 +32,8 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRouteService.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      this.todoItem = this.TodoListService.getTodoItem(this.id);
+      this.Item = this.TodoListService.getTodoItem(this.id);
     })
-    console.log('editor is laoded');
+    console.log('editor is loAded');
   }
 }
