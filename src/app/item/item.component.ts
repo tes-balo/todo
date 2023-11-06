@@ -14,8 +14,6 @@ import { Item } from '../item';
 export class ItemComponent {
   editable = false;
 
-  RouterService: Router;
-
   /* NOTE: why are both inputs returning error without the non-nullish operator?? */
   // Expect inputs (i.e items to display) from AppComponent
   @Input() item!: Item;
@@ -24,9 +22,7 @@ export class ItemComponent {
 
   @Output() remove: EventEmitter<Item> = new EventEmitter();
 
-  constructor(router: Router) {
-    this.RouterService = router;
-  }
+  constructor(private router: Router) {}
 
   saveItem(description: string) {
     if (!description || description === ' ') {
@@ -37,6 +33,6 @@ export class ItemComponent {
   }
 
   openEditor(): void {
-    this.RouterService.navigateByUrl('/editor');
+    this.router.navigateByUrl('/editor');
   }
 }

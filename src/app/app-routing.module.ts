@@ -9,8 +9,6 @@ const routes: Routes = [
     path: 'editor',
     title: 'Editor',
     component: EditorComponent,
-    pathMatch: 'full',
-    children: [{ path: ':id', component: EditorComponent, pathMatch: 'full' }],
   },
   { path: '', component: ShellComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
@@ -21,3 +19,6 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+//  pathMatch: 'full',
+//   children: [{ path: ':id', component: EditorComponent, pathMatch: 'full' }],

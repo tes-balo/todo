@@ -1,11 +1,11 @@
-<div class="item" (click)="openEditor()">
+<div class="item">
   <input
     [id]="item.description"
     type="checkbox"
     (change)="item.done = !item.done"
     [checked]="item.done" />
   <label [for]="item.description">
-    <span class="description" [ngClass]="{ 'todo-complete': item.done }">
+    <span class="description" [ngClass]="{ 'todo-complete': item.done }" (click)="openEditor()">
       {{ item.description }}
     </span>
 
